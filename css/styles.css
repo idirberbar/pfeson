@@ -1,0 +1,600 @@
+html, body, .page {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+    -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+    -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+    -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);  
+    color: #383838;
+    overflow: hidden; 
+}
+/* CSS pour le formulaire de signalement de problème */
+
+/* Style pour les options de catégorie */
+.categorieOptions {
+    margin-bottom: 10px;
+}
+.categorieOptions p {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.categorieOptions label {
+    
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+.categorieOptions input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style pour les options de type */
+.typeOptions {
+    margin-bottom: 10px;
+}
+.typeOptions p {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.typeOptions label {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 14px;
+}
+.typeOptions input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* element.style{
+    height: 300px;
+    width: 200px;
+    margin-top: 80px;
+    border-top-width: 2px;   
+    padding-top: 30px;  
+    height: 15px;
+    width: 550px;
+    padding-top: 300px;
+    border-top-width: 300px;
+} */
+
+/* Police d'écriture générale */
+    * {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 100;
+    }
+
+
+/* ------------------------------ Gestion des pages ------------------------------ */
+
+    /* Dimensionnement des pages */
+        .page {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 125vh;
+            width: 100vw;
+            padding: 0;
+        }
+
+        /* Position des pages */
+            #p1 {left: 0;}
+            #p2, #p3, #p4, #p5, #p6 {left: 200%;}
+
+    /* Background de base */
+        #p1, #p2, #p3, #p4, #p5, #p6 { background:#D6DAC8; }
+
+    /* Transition des pages */
+        #t2:target #p2,
+        #t3:target #p3,
+        #t4:target #p4,
+        #t5:target #p5,
+        #t6:target #p6 {
+            transform: translateX(-192%);
+            -webkit-transform: translateX(-192%);
+            -moz-transform: translateX(-192%);
+            -o-transform: translateX(-192%);
+            transition-delay: .4s !important;
+        }
+
+    /* Background + flou sur l'accueil lorsqu'une autre page est ciblée*/
+        #t2:target #p1, 
+        #t3:target #p1,
+        #t4:target #p1,
+        #t5:target #p1,
+        #t6:target #p1 {
+            background: #9CAFAA;
+            transition: 1.5s all;
+            -webkit-filter: blur(3px);
+            filter: blur(3px);
+        }
+
+    /* Transition du contenu de la page */
+        #t2:target .page#p2 .section,
+        #t3:target .page#p3 .section,
+        #t4:target .page#p4 .section,
+        #t6:target .page#p6 .section {
+            transform: translateX(-16%) !important;
+            -webkit-transform: translateX(-16%) !important;
+            -moz-transform: translateX(-16%) !important;
+            -o-transform: translateX(-16%) !important;
+        }
+
+        #t5:target .page#p5 .section {
+            transform: translateX(-8%) !important;
+            -webkit-transform: translateX(-8%) !important;
+            -moz-transform: translateX(-8%) !important;
+            -o-transform: translateX(-8%) !important;
+        }
+
+
+/* ------------------------------ Menu ------------------------------ */
+
+    /* Position et taille du menu */
+        nav {
+            position: fixed;
+            z-index: 1;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 8vw;
+        }
+        .auth-container {
+            border-top: 2px solid #007bff; /* Couleur de la bordure au-dessus des boutons d'authentification */
+            margin-top: 20px; /* Marge en haut pour créer de l'espace entre les éléments */
+          }
+          
+
+    /* Icônes du menu */
+        nav img {
+            width: 2.5vw;
+        }
+
+    /* Position des trois parties du menu */
+        /* Top */
+            ul#top {
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                top: 2vh;
+                left: 100vw;
+            }
+            ul#top #userName {
+                position: absolute;
+                left: -2.75vw;
+                width: 8vw;
+                text-align: center;
+                color: ivory;
+                font-weight: 400;
+                margin-top: 0.5em;
+            }
+
+
+        /* Middle */
+            ul#middle {
+                height: 20vh;
+                width: 7vw;
+                padding: 0;
+                margin: 0;
+                position: absolute;
+                left: 0.5vw;
+                top: 40vh;
+                bottom: 40vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+        /* Bottom */
+            ul#bottom {
+                margin: 0;
+                padding: 0;
+                position: absolute;
+                bottom: 2vh;
+                left: 2.75vw;
+            }
+
+    /* Transition du bouton redirigeant vers l'acceuil */
+        #t2:target #top,
+        #t3:target #top,
+        #t4:target #top,
+        #t5:target #top,
+        #t6:target #top {
+            transform: translateX(-97.25vw);
+            -webkit-transform: translateX(-97.25vw);
+            -moz-transform: translateX(-97.25vw);
+            -o-transform: translateX(-97.25vw);
+            transition-delay: .6s !important;
+            transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+            -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+            -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+            -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1); 
+        }
+
+
+    /* Mise en page du texte et hover */
+        .lien {
+            color: #383838;
+            font-size: 1.1vw;
+            margin: 10px 0;
+            transition: all .5s ease-out !important;
+            -webkit-transition: all .5s ease-out;
+            -moz-transition: all .5s ease-out;
+            -o-transition: all .5s ease-out;
+        }
+        a {
+            text-decoration: none;
+            list-style-type: none;
+        }
+        .lien:hover {
+            opacity: .5;
+        }
+
+    /* Réduction des éléments du menu lorsqu'ils ne sont pas target */
+        #t2:target ul .lien,
+        #t3:target ul .lien,
+        #t4:target ul .lien,
+        #t5:target ul .lien,
+        #t6:target ul .lien {
+            transform: scale(.8);
+            -webkit-transform: scale(.8);
+            -moz-transform: scale(.8);
+            -o-transform: scale(.8);
+            transition-delay: .25s;
+        }
+      
+    /* Augmentation de l'élément du menu ciblé */
+        #t2:target #dos,
+        #t3:target #tres,
+        #t4:target #quatro,
+        #t5:target #tres,
+        #t6:target #quatro {
+            transform: scale(1.1) !important;
+            -webkit-transform: scale(1.1) !important;
+            -moz-transform: scale(1.1) !important;
+            -o-transform: scale(1.1) !important;
+            color: ivory;
+        }
+
+
+/* ------------------------------ Gestion des pages d'accueil ------------------------------ */
+.accueil {
+    position: absolute;
+    top: -15vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+    transform: translateX(8%) !important;
+    transform: translateY(-20%);
+}
+
+    /* Image */
+        .accueil img {
+            height: 30vh;
+        }
+    
+    /* Titre */
+        .accueil h1 {
+            margin: 0;
+            padding: 1.5vh;
+            font-size: 2.8vh;
+            font-weight: 700;
+        }
+
+    /* Phrase */
+        .phraseAccueil {
+            color: burlywood;
+            text-align: center;
+            font-size: 2vh;
+            font-weight: 700;
+            margin-top: 2vh;
+        }
+
+        /* Sous-phrase */
+            span#sousPhraseAccueil {
+                color: burlywood;
+                text-align: center;
+                font-size: 2.2vh;
+                margin: 0;
+            }
+
+
+/* ------------------------------ Formulaires ------------------------------ */
+/* Formulaire */
+.formulaire {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 5px;
+    border-radius: 10px;
+    height: 90%; /* Augmentation de la hauteur */
+    width: 60%; /* Augmentation de la largeur */
+    padding: 0;
+}
+
+/* Grand formulaire */
+.grandFormulaire {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 5px;
+    border-radius: 40px;
+    padding: 0;
+    height: 100vh; /* Augmentation de la hauteur */
+    width: 100vw; /* Augmentation de la largeur */
+    /* background-color: aquamarine; */
+}
+
+
+    .doubleSaisieFlex {
+        display: flex;
+        justify-content: space-between;
+        width: 44vw;
+        /* background-color: greenyellow; */
+    }
+
+
+    /* Zone de saisie */
+        .saisieFlex {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-bottom: 20vh;
+            height: 40vh;
+            
+            /* background-color: bisque; */
+        }
+
+
+    /* Titre */
+        .titreFlex {
+            display: flex;
+            margin-top: 4vh;
+            height: 2vh;
+        }
+        .titreFlex h3 {
+            text-transform: uppercase;
+            font-size: 160%;
+            font-weight: 800;
+            color: #383838;
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+    /* Éléments saisis */
+        .saisie {
+            text-align: left;
+            outline: none;
+            border: none;
+            border-bottom: 1.5px solid black;
+            width: 30vw;
+            background-color: #D6DAC8;
+        }
+      
+        
+    /* Adresse mail */
+        div#adresseMail {
+            display: flex;
+        }
+
+    /* Mise en forme des deux parties de l'adresse */
+        input#preMail {
+            width: 25vw;
+        }
+        input#sufMail {
+            width: 5vw;
+            text-align: right;
+        }
+
+    /* Boutons */
+        .btnFlex {
+            display: flex;
+            justify-content: start;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2vh;
+            height: 7vh;
+        }
+        
+        
+
+    /* Bouton d'envoie */
+        .bouton {
+            color: ivory;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2vh;
+            font-weight: 1000;
+            box-shadow: 0 0 21px #22332e;
+            border-radius: 1.3vw;
+            border: none;
+            background-color: #46341775;
+            width: 16vw;
+        }
+        .bouton:hover {
+            transition: 0.4s;
+            box-shadow: 0 0 20px burlywood;
+        }
+        
+
+        /* Inputs */
+            input {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 2.3vh;
+                height: 2.7vw;
+                color: #383838;
+            }
+            /* Style pour la barre de recherche */
+.search-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #D6DAC8; /* Couleur de fond de la barre de recherche */
+    padding: 10px; /* Espace interne autour de la zone de recherche */
+    box-shadow: 0 3px 4px #383838; /* Ombre pour effet de profondeur */
+    z-index: 1000; /* Assure que la barre de recherche est au-dessus de tout le contenu */
+}
+
+/* Style pour le champ de saisie */
+.search-box input[type="text"] {
+    width: 20%; /* Largeur du champ de saisie */
+    padding: 1px; /* Espace interne à l'intérieur du champ */
+    border: 2px solid #ccc; /* Bordure autour du champ */
+    border-radius: 20px; /* Coins arrondis */
+    margin-right: 3px; /* Marge à droite pour séparer du bouton de recherche */
+}
+
+/* Style pour le bouton de recherche */
+.search-box button {
+    padding: 8px 10px; /* Espace interne du bouton */
+    background-color: #007bff; /* Couleur de fond du bouton */
+    color: #fff; /* Couleur du texte du bouton */
+    border: none; /* Suppression de la bordure du bouton */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur au survol */
+}
+
+/* Style pour le tableau */
+.table {
+    margin-top: 50px; /* Marge en haut pour éviter que le tableau ne soit caché sous la barre de recherche */
+    /* Ajoutez d'autres styles de tableau selon vos besoins */
+}
+
+
+        /* Textarea */
+            /* textarea {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 3px;
+                color: #383838;
+                margin-top: 2vh;
+                width: 400px;
+                height: 500px;
+            } */
+
+
+
+
+/* ------------------------------ Tableaux ------------------------------ */
+/* Position des tableaux */
+    #tableauVisuMat {
+        position: absolute;
+        left: 27vw;
+    }
+    #tableauVisuUser {
+        position: absolute;
+        left: 28.5vw;
+    }
+    #tableauVisuInc {
+        position: absolute;
+        left: 22vw;
+    }
+    #tableauIncUser {
+        position: absolute;
+        left: 25vw;
+    }
+
+/* Forme générale des tableaux */
+    table {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-collapse: collapse;
+        border-radius: 10px;
+        box-shadow: 0 0 50px;
+        padding-bottom: 9vw;
+    }
+
+    /* Hauteur de la section des lignes de données */
+        tbody {
+            height: 50.3vh;
+            overflow: auto;
+        }
+    
+    /* Titre des tableaux */
+        caption {
+
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2vh;
+        }
+
+    /* En-têtes */
+        th {
+            background-color: #383838;
+            text-transform: uppercase;
+            font-size: 1.7vh;
+            font-weight: 1000;
+            color: #0f0f0f;
+            padding: 1vh;
+            width: 200vw;
+        }
+
+    /* Cases du tableau */
+        td {
+            text-align: center;
+            font-size: 2.1vh;
+            outline: none;
+            width: 12vw;
+            height: 7vh;
+            padding: 2vh;
+        }
+
+    /* Bouton de validation du formulaire */
+        input#validate {
+            position: absolute;
+            bottom: 3vh;
+            left: 41.5%;
+        }
+
+    /* Style des checkbox */
+
+
+
+/* Scroolbar */
+    /* Largeur */
+    ::-webkit-scrollbar {
+        width: 100%;
+        height: 100%;
+        overflow-y:auto;
+    }
+
+    /* Curseur */
+    ::-webkit-scrollbar-thumb {
+    box-shadow: inset 3 3 9px gray;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    overflow-y:auto;
+    }
+
+/* Bouton de redirection vers les formulaires d'ajout d'utilisateur et matériel */
+    #btnAjoutUser {
+        position: absolute;
+        left: 19.6vw;
+        bottom: 2vh;
+        height: 3vw;
+    }
+
+    #btnAjoutMat {
+        position: absolute;
+        left: 24.5vw;
+        bottom: 2vh;
+        height: 3vw;
+    }
+
+    #btnAjoutInc {
+        position: absolute;
+        left: 24.3vw;
+        bottom: 2vh;
+        height: 3vw;
+    }
